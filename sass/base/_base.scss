@@ -1,0 +1,29 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  font-size: 62.5%; // 1rem = 10px
+}
+
+body {
+  box-sizing: border-box;
+
+  &.no-scroll {
+    overflow: hidden;
+  }
+}
+
+header, footer, section {
+  padding-left: 7%;
+  padding-right: 7%;
+}
+
+::selection {
+  background-color: $color-primary-dark;
+  color: $color-white;
+}

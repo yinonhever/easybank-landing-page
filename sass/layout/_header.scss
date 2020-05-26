@@ -1,0 +1,117 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1.6rem;
+  font-weight: 400;
+  position: relative;
+  z-index: 9999;
+  background-color: $color-white;
+
+  &__nav-toggle {
+    display: none;
+  }
+
+  &__nav-item {
+    &,
+    &:link,
+    &:visited {
+      display: inline-block;
+      padding: 2.75rem 0;
+      position: relative;
+      text-decoration: none;
+      color: inherit;
+
+      &:not(:last-child) {
+        margin-right: 3rem;
+      }
+    }
+
+    &:hover {
+      color: $color-primary-dark;
+
+      &::after {
+        content: "";
+        width: 100%;
+        height: 4px;
+        background-image: linear-gradient(
+          to right,
+          $color-primary-green,
+          $color-primary-cyan
+        );
+        position: absolute;
+        bottom: 0;
+        left: 0;
+      }
+    }
+  }
+  
+
+  ///// SMALL SCREENS
+
+  @include respond(tablet) {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+
+    &__nav-toggle {
+      display: inline-block;
+    }
+
+    &__navigation {
+      display: none;
+
+      &.visible {
+        display: block;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        height: 100vh;
+        background: linear-gradient(
+          to bottom,
+          rgba($color-primary-dark, 0.7),
+          rgba($color-grey-light-1, 0.7)
+        );
+      }
+    }
+
+    &__nav-list {
+      display: flex;
+      flex-direction: column;
+      background-color: $color-white;
+      width: 86%;
+      margin: auto;
+      text-align: center;
+      padding: 3.5rem 0;
+      margin-top: 2.25rem;
+    }
+
+    &__nav-item {
+      color: $color-primary-dark !important;
+      padding: 0 !important; 
+      margin: 0 !important;
+
+      &:not(:last-child) {
+        margin-bottom: 2.25rem !important;
+      }
+
+      &:hover {
+        color: $color-grey-dark !important;
+
+        &::after {
+          display: none;
+        }
+      }
+    }
+
+    .btn {
+      display: none;
+    }
+  }
+
+  @include respond(phone) {
+    height: 6.25rem;
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+}

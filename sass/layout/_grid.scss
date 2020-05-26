@@ -1,0 +1,13 @@
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-gap: 4rem;
+
+  @include respond(tablet-land) {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  @include respond(phone) {
+    grid-template-columns: 1fr;
+  }
+}

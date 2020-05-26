@@ -1,0 +1,114 @@
+.footer {
+  background-color: $color-primary-dark;
+  color: $color-white;
+  padding-top: 7rem;
+  padding-bottom: 7rem;
+  font-size: 1.6rem;
+  display: flex;
+  align-items: center;
+
+  @include respond(tablet) {
+    flex-direction: column;
+  }
+
+  &__left {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  &__logo {
+    margin-bottom: 7rem;
+    width: 18rem !important;
+
+    @include respond(tablet) {
+      margin-bottom: 4rem;
+    }
+  }
+
+  &__social-row {
+    display: flex;
+  }
+
+  &__social-icon {
+    color: inherit;
+
+    svg {
+      width: 2.5rem;
+      height: 2.5rem;
+      fill: currentColor;
+
+      &:hover {
+        fill: $color-primary-green;
+      }
+    }
+
+    &:not(:last-child) {
+      margin-right: 1.5rem;
+    }
+  }
+
+  &__nav {
+    flex-grow: 1; // as a child of the footer element
+    display: flex;
+
+    @include respond(tablet) {
+      flex-grow: 0;
+      flex-direction: column;
+      margin: 5rem 0 6rem;
+    }
+  }
+
+  &__nav-column {
+    margin-left: 20%;
+
+    @include respond(tablet) {
+      margin-left: 0;
+      text-align: center;
+
+      &:not(:last-child) {
+        margin-bottom: 2rem;
+      }
+    }
+  }
+
+  &__nav-link {
+    &,
+    &:link,
+    &:visited {
+      color: inherit;
+      display: block;
+      text-decoration: none;
+    }
+
+    &:not(:last-child) {
+      margin-bottom: 2rem;
+    }
+
+    &:hover {
+      color: $color-primary-green;
+    }
+  }
+
+  &__right {
+    text-align: right;
+
+    @include respond(tablet) {
+      text-align: center;
+    }
+  }
+
+  .btn:hover {
+    background: linear-gradient(
+        to right,
+        rgba($color-primary-green, 0.6),
+        rgba($color-primary-cyan, 0.6)
+      ),
+      $color-white;
+  }
+
+  &__copyright {
+    margin-top: 5rem;
+    color: $color-grey-dark;
+  }
+}

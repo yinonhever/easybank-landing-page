@@ -1,0 +1,26 @@
+.btn {
+  &,
+  &:link,
+  &:visited {
+    color: $color-white;
+    background: linear-gradient(
+      to right,
+      $color-primary-green,
+      $color-primary-cyan
+    );
+    text-decoration: none;
+    font-size: 1.6rem;
+    font-weight: 600;
+    padding: 1.2rem 4rem;
+    border-radius: 100px;
+    cursor: pointer;
+  }
+
+  &:hover {
+    background: linear-gradient(
+      to right,
+      rgba($color-primary-green, 0.6),
+      rgba($color-primary-cyan, 0.6)
+    );
+  }
+}

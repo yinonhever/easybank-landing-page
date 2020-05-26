@@ -1,0 +1,8 @@
+.logo {
+  width: 18rem;
+
+  @include respond(tablet) {
+    width: 45%;
+    max-width: 18rem;
+  }
+}
