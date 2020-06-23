@@ -1,59 +1,72 @@
+///// MAIN CONTAINER, IMAGE AND BACKGROUND
+.container {
+  position: relative;
+  overflow: hidden;
+
+  &__img,
+  &__bg,
+  &__bg-mobile {
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
+
+  &__img {
+    width: 50vw;
+    max-width: 72rem;
+    min-width: 52rem;
+    transform: translate(15%, -5%);
+    z-index: 2;
+  }
+
+  &__bg {
+    width: 75vw;
+    max-width: 108rem;
+    min-width: 78rem;
+    transform: translate(27%, -15%);
+  }
+
+  &__bg-mobile {
+    display: none;
+  }
+
+  @include respond(tablet) {
+    &__bg {
+      display: none;
+    }
+
+    &__img, &__bg-mobile {
+      width: 100%;
+      min-width: initial;
+      max-width: 40rem;
+      right: 50%;
+    }
+
+    &__img {
+      transform: translate(50%, -15%);
+    }
+
+    &__bg-mobile {
+      display: block;
+      transform: translateX(50%);
+    }
+  }
+}
+
 ///// INTRO SECTION
 .intro {
   background-color: $color-grey-light-2;
-  padding-top: 13rem;
-  padding-bottom: 13rem;
+  padding-top: 15rem;
+  padding-bottom: 15rem;
+
+  & > * {
+    position: relative;
+    z-index: 10;
+  }
 
   @include respond(tablet) {
     padding-top: 5rem;
     padding-bottom: 10rem;
-
-    &__img-container-mobile {
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 70vh;
-      width: 100%;
-      max-width: 500px;
-      margin: auto;
-      background-image: url(../images/image-mockups.png),
-        url(../images/bg-intro-mobile.svg);
-      background-repeat: no-repeat;
-      background-position: bottom;
-      background-size: cover;
-    }
-  }
-
-  &__bg-container {
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: 60%;
-    height: 100%;
-    background-image: url(../images/bg-intro-desktop.svg);
-    background-repeat: no-repeat;
-    background-position: left;
-
-    @include respond(tablet) {
-      display: none;
-    }
-  }
-
-  &__img-container {
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: 51%;
-    height: 115%;
-    background-image: url(../images/image-mockups.png);
-    background-repeat: no-repeat;
-    background-position: left bottom;
-    z-index: 2;
-
-    @include respond(tablet) {
-      display: none;
-    }
   }
 
   &__content {
@@ -61,8 +74,8 @@
 
     @include respond(tablet) {
       width: 100%;
-      max-width: 600px;
-      margin: 60vh auto 0;
+      max-width: 60rem;
+      margin: 32rem auto 0;
       text-align: center;
     }
   }
@@ -71,7 +84,6 @@
     margin-bottom: 4rem;
   }
 }
-
 
 ///// FEATURES SECTION
 .features {
@@ -104,7 +116,6 @@
   }
 }
 
-
 ///// ARTICLES SECTION
 .articles {
   background-color: $color-grey-light-2;
@@ -125,8 +136,11 @@
     object-fit: cover;
   }
 
-  &__content {
+  &__column {
     background-color: $color-white;
+  }
+
+  &__content {
     padding: 3rem;
   }
 
